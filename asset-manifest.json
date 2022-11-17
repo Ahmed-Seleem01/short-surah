@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/short-surah/static/css/main.5fccab9b.css",
+    "main.js": "/short-surah/static/js/main.2d29ea6d.js",
+    "index.html": "/short-surah/index.html",
+    "main.5fccab9b.css.map": "/short-surah/static/css/main.5fccab9b.css.map",
+    "main.2d29ea6d.js.map": "/short-surah/static/js/main.2d29ea6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fccab9b.css",
+    "static/js/main.2d29ea6d.js"
+  ]
+}
