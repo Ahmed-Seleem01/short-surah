@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/short-surah/static/css/main.5fccab9b.css",
-    "main.js": "/short-surah/static/js/main.30e364bc.js",
+    "main.js": "/short-surah/static/js/main.389f4efb.js",
     "index.html": "/short-surah/index.html",
     "main.5fccab9b.css.map": "/short-surah/static/css/main.5fccab9b.css.map",
-    "main.30e364bc.js.map": "/short-surah/static/js/main.30e364bc.js.map"
+    "main.389f4efb.js.map": "/short-surah/static/js/main.389f4efb.js.map"
   },
   "entrypoints": [
     "static/css/main.5fccab9b.css",
-    "static/js/main.30e364bc.js"
+    "static/js/main.389f4efb.js"
   ]
 }
