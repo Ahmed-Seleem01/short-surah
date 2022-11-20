@@ -53,14 +53,21 @@ class MyBox extends React.Component{
     this.newSurah = this.newSurah.bind(this);
   }
  randomColor(){
-      let randomColor ="#" + Math.floor((Math.random()*16777215)+20).toString(16);
-    $('body').css("background-color", randomColor);
-   $('body').css("transition", "background-color 2s ease"); 
+  let randomColor ="#" + Math.floor((Math.random()*16777215)+20).toString(16);
+  $('body').css("background-color", randomColor);
+  $('body').css("transition", "background-color 2s ease"); 
+  $('#text').css("opacity",0)
+  $('#surahName').css("opacity",0)
+ 
+  setTimeout(()=>{
     $('#text').css("color", randomColor);
-    $('#text').css("transition", "color 2s ease"); 
-    $('#surahName').css("color", randomColor);
-   $('#surahName').css("transition", "color 2s ease"); 
-    }
+    $('#surahName').css("color", randomColor); 
+    $('#text').css("opacity",1)
+    $('#surahName').css("opacity",1)
+    $('#text').css("transition", "opacity 1s ease");
+    $('#surahName').css("transition", "opacity 1s ease");
+  }, 1000);
+}
   
   //Function for getting random surah from array of surahs in the store state
   newSurah(){
@@ -72,17 +79,14 @@ class MyBox extends React.Component{
    })
     
      //giving all elements a random color each new surah
-   $('#text').css("opacity",0)
-    $('#surahName').css("opacity",0)
-    this.randomColor();
-    setTimeout(()=>{
-      $('#text').css("opacity",1)
-      $('#surahName').css("opacity",1)
-    $('#text').css("transition", "opacity 1s ease");
-      $('#surahName').css("transition", "opacity 1s ease");
-     }, 500);
-  
-    
+     this.randomColor();  
+     const randomSurah = this.props.surahs[randomNumber(0, this.props.surahs.length)]
+     //Set the state
+     setTimeout(() => this.setState(() => {
+          return ({
+          surah: randomSurah
+        })
+    }),1000) 
   }
   
    componentDidMount(){
@@ -92,31 +96,29 @@ class MyBox extends React.Component{
   .then(function(response) {
     return response.json();
   })
-  .then((data)=>{
-    this.props.addSurahs(data.data.surahs.filter( item => {
-      if(item.ayahs.length <= 15) {
-          return item
+  .then((data)=> {
+    const arr = data.data.surahs.filter( item => {
+      if(item.ayahs.length <= 20) {
+          return item;
     }
-    }))
+    })
     
-    //Set the state of the store
+    this.props.addSurahs(arr);
+    this.randomColor();
+
     this.setState(() => {
          return ({
-         surahs: data.data.surahs.filter( item => {
-          if(item.ayahs.length <= 15) {
-              return item
-        }
-        })
+         surah: arr[randomNumber(0, arr.length)]
        })
    })
-      this.randomColor();                   
+   
   });
 
   }
   
   render(){
     //When reciving the surah from store we will sum the ayahs of the surah
-    const surah = this.state.surahs[randomNumber(0, this.state.surahs.length)]
+    const {surah} = this.state
     const ayahs = surah ? surah.ayahs.reduce((acc, ayah) => {
           return acc += ( ayah["text"] + " (" + ayah["numberInSurah"] + ") ")
     }, '') : "Loading...";
@@ -125,7 +127,7 @@ class MyBox extends React.Component{
     return( 
       <div id="box">
         <p id="text">{ayahs}</p>
-        <cite id ="surahName">{surahName}</cite>
+        <div id ="surahName">{surahName}</div>
      <div id="container" className="container-fluid">
        <div className="row center-text">
          <div className="col-2">
