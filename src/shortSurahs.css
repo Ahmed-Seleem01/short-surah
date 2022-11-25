@@ -1,66 +1,115 @@
-body{
+body {
   box-sizing: border-box;
-  font-family: "Times New Roman", Times, serif;
+  font-family: arial, "Times New Roman", Times, serif;
   margin: 0;
 }
 
 /*
   Style the box that contains the surah
 */
-#box{
-  text-align: center;
-  min-width: 400px;
-  width: 50%;
-  background-color: white;
-  margin: 20vh auto 0 auto;
-  padding: 30px 40px;
-  border: 5px solid black;
-  border-radius: 20px;
-  
+@media screen and (min-width: 450px) {
+  #box {
+    text-align: center;
+    min-width: 400px;
+    width: 50%;
+    background-color: white;
+    margin: 20vh auto 0 auto;
+    padding: 30px 40px;
+    border: 5px solid black;
+    border-radius: 20px;
+  }
+  #box #text {
+    font-size: 1.7em;
+  }
+  #box #surahName {
+    font-size: 1.3rem;
+    text-align: right;
+    margin: 15px 0;
+  }
+  /*
+    Style the buttons
+  */
+  #buttons-container .btn-primary {
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+  }
+  #buttons-container .btn-primary .icon {
+    display: inline-block;
+    margin: -2% 0 10% 0;
+    color: white;
+  }
+  #buttons-container #new-quote {
+    margin-right: -60%;
+  }
+  /*
+    Style the author link
+  */
+  #author {
+    font-size: 0.8em;
+    margin: 3em auto 2em auto;
+    text-align: center;
+  }
+  #author a {
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+  }
+  #author a:hover {
+    color: orange;
+  }
 }
-#text{
-  font-size: 1.7em;
-}
-#surahName{
-  display: block;
-  font-size: 1.2rem;
-  text-align: right;
-  margin: 15px 0;
+@media screen and (max-width: 450px) {
+  #box {
+    text-align: center;
+    width: 300px;
+    background-color: white;
+    margin: 20vh auto 0 auto;
+    padding: 10px 20px;
+    border: 3px solid black;
+    border-radius: 15px;
+    /*
+      Style the buttons
+    */
+  }
+  #box #text {
+    font-size: 1.3em;
+  }
+  #box #surahName {
+    font-size: 1.3rem;
+    text-align: right;
+    margin: 15px 0;
+  }
+  #box #buttons-container .btn-primary {
+    margin: 0 5%;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+  }
+  #box #buttons-container .btn-primary .icon {
+    display: inline-block;
+    margin: -2% 0 10% 0;
+    color: white;
+  }
+  #box #buttons-container #new-quote {
+    margin-right: -60%;
+  }
+  #author {
+    font-size: 0.8em;
+    margin: 3em auto 2em auto;
+    text-align: center;
+  }
+  #author a {
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+  }
+  #author a:hover {
+    color: orange;
+  }
 }
 
-/*
-  Style the buttons
-*/
- .icon{
-  color:white;
-  font-size:1.5em;
-  margin:-10% 0 0 -30%;
- }
-
-#new-quote{
- 
-  margin-right: -60%;
-}
-.btn-primary{
-  padding:0;
-  font-size:100px;
-  width: 40px;
-  height:40px;
-}
-
-/*
-  Style the author link
-*/
-#author{
-  font-size: 0.8em;
-  margin:3em auto 2em auto;
-  text-align: center;
-}
-#author a{
-  font-size: 2em;
-  color: white;
-  text-decoration: none;
-}
-#author a:hover{
-   color: orange;
-}
+/*# sourceMappingURL=shortSurahs.css.map */

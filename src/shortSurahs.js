@@ -128,6 +128,7 @@ class MyBox extends React.Component{
       <div id="box">
         <p id="text">{ayahs}</p>
         <div id ="surahName">{surahName}</div>
+        <div id="buttons-container">
      <div id="container" className="container-fluid">
        <div className="row center-text">
          <div className="col-2">
@@ -139,6 +140,7 @@ class MyBox extends React.Component{
         <div className="col-8">
             <button id="new-quote" onClick={this.newSurah} className='btn btn-danger'>New Surah</button> 
          </div>
+        </div>
         </div>
         </div>
       </div>
